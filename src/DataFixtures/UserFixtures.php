@@ -29,6 +29,7 @@ class UserFixtures extends Fixture
         $admin->setPassword(
             $this->passwordEncoder->hashPassword($admin, 'admin')
         );
+        $admin->setResetToken('');
         $admin->setRoles(['ROLE_ADMIN']);
         $manager->persist($admin);
 
@@ -45,6 +46,7 @@ class UserFixtures extends Fixture
             $user->setPassword(
                 $this->passwordEncoder->hashPassword($user, 'user')
             );
+            $user->setResetToken('');
 
             $manager->persist($user);
         }

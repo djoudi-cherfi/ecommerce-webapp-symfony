@@ -41,6 +41,8 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            $user->setResetToken('');
+
             $entityManagerInterface->persist($user);
             $entityManagerInterface->flush();
             // do anything else you need here, like send an email
@@ -76,6 +78,7 @@ class RegistrationController extends AbstractController
             );
         }
 
+
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
@@ -101,6 +104,7 @@ class RegistrationController extends AbstractController
                 return $this->redirectToRoute('profile_index');
             }
         }
+
         // Ici un problème se pose dans le token
         $this->addFlash('danger', 'Le token est invalide ou expiré');
 

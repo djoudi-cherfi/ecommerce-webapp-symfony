@@ -67,7 +67,7 @@ class SecurityController extends AbstractController
                 $token = $tokenGeneratorInterface->generateToken();
                 
                 $user->setResetToken($token);
-
+                
                 $entityManagerInterface->persist($user);
                 $entityManagerInterface->flush();
 

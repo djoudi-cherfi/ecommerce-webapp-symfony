@@ -30,7 +30,6 @@ class JWTService
             $payload['exp'] = $expires;
         }
 
-
         // On encode en base64
         $base64Header = base64_encode(json_encode($header));
         $base64Payload = base64_encode(json_encode($payload));
